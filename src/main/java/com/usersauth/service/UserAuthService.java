@@ -2,6 +2,7 @@ package com.usersauth.service;
 
 import com.usersauth.model.User;
 
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,11 +24,12 @@ public class UserAuthService {
         usersMap.put("call", call);
     }
 
-    public boolean login(String username, String password) {
+    public String login(String username, String password) {
+        String token=null;
         User user = usersMap.get(username);
         if (user != null && user.getPassword().equals(password)) {
-            return true;
+            token= Base64.getEncoder().encodeToString(username.getBytes());
         }
-        return false;
+        return token;
     }
 }
