@@ -15,7 +15,12 @@ public class UserAuthService {
 
     private static void buildUsersData() {
         User another = new User("another", "the loose");
+        User berit = new User("berit", "123456");
+        User call = new User("call", "password");
+
         usersMap.put("another", another);
+        usersMap.put("berit", berit);
+        usersMap.put("call", call);
     }
 
     public boolean login(String username, String password) {
