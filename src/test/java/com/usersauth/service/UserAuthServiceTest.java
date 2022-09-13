@@ -15,13 +15,13 @@ class UserAuthServiceTest {
 
     @Test
     void testLogin() {
-        boolean isAuthenticationValid = userAuthService.login("another", "the loose");
-        Assertions.assertTrue(isAuthenticationValid);
+        String token = userAuthService.login("another", "the loose");
+        Assertions.assertNotNull(token);
     }
 
     @Test
     void testLoginForInvalidCredentials() {
-        boolean isAuthenticationValid = userAuthService.login("test", "test");
-        Assertions.assertFalse(isAuthenticationValid);
+        String token = userAuthService.login("test", "test");
+        Assertions.assertNull(token);
     }
 }
