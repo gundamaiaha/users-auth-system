@@ -2,9 +2,7 @@ package com.usersauth.service;
 
 import com.usersauth.model.User;
 
-import java.util.Base64;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class UserAuthService {
 
@@ -31,5 +29,10 @@ public class UserAuthService {
             token= Base64.getEncoder().encodeToString(username.getBytes());
         }
         return token;
+    }
+
+    public List<String> getUserRights(String token,String domain){
+        List<String> userRights = new ArrayList<>();
+        return userRights;
     }
 }
